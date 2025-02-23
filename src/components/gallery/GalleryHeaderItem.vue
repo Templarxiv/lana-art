@@ -1,27 +1,20 @@
 <script setup>
-import GalleryHeaderItem from './GalleryHeaderItem.vue';
-const publicPath = import.meta.env.BASE_URL;
+const props = defineProps({
+    name: {
+        type: String,
+        required: true,
+    },
+})
+const url = import.meta.env.PROD ? `./images/${props.name}` : `./public/images/${props.name}`;
 </script>
-
 <template>
-    <div class="external">
-        <div class="horizontal-scroll-wrapper">
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower vertical" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower slower-down" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper faster1" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower slower2" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower last" name="1970-01-01 03-00-00_1637866612.jpg"/>
-        </div>
+    <div>
+        <a href="" target="_blank" rel="noopener">
+            <img :src="url" alt="">
+        </a>
     </div>
 </template>
 <style scoped>
-/* Inspired by this pen by Pieter Biesemans https://codepen.io/pieter-biesemans/pen/BQBWXX and My Mother Before Me project http://mymotherbeforeme.com/ */
-
-
 * {
     /* box-sizing: border-box; */
 }

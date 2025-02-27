@@ -1,26 +1,59 @@
 <script setup>
 import GalleryHeaderItem from './GalleryHeaderItem.vue';
 const publicPath = import.meta.env.BASE_URL;
+
+const pointerScroll = (elem) => {
+
+    const dragStart = (ev) => elem.setPointerCapture(ev.pointerId);
+    const dragEnd = (ev) => elem.releasePointerCapture(ev.pointerId);
+    const drag = (ev) => elem.hasPointerCapture(ev.pointerId) && (elem.scrollLeft -= ev.movementX);
+
+    elem.addEventListener("pointerdown", dragStart);
+    elem.addEventListener("pointerup", dragEnd);
+    elem.addEventListener("pointermove", drag);
+};
+
+document.querySelectorAll(".external").forEach(pointerScroll);
 </script>
 
 <template>
     <div class="external">
         <div class="horizontal-scroll-wrapper">
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower vertical" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower slower-down" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper faster1" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower slower2" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg"/>
-            <GalleryHeaderItem class="img-wrapper slower last" name="1970-01-01 03-00-00_1637866612.jpg"/>
+            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg" />
+            <GalleryHeaderItem class="img-wrapper slower vertical" name="1970-01-01 03-00-00_1637866625.jpg" />
+            <GalleryHeaderItem class="img-wrapper slower slower-down" name="1970-01-01 03-00-00_1637866628.jpg" />
+            <GalleryHeaderItem class="img-wrapper faster1" name="1970-01-01 03-00-00_1637866681.jpg" />
+            <GalleryHeaderItem class="img-wrapper slower slower2" name="1970-01-01 03-00-00_1637866693.jpg" />
+            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866712.jpg" />
+            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00.jpg" />
+            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg" />
+            <GalleryHeaderItem class="img-wrapper slower last" name="1970-01-01 03-00-00_1637866612.jpg" />
         </div>
     </div>
 </template>
 <style scoped>
 /* Inspired by this pen by Pieter Biesemans https://codepen.io/pieter-biesemans/pen/BQBWXX and My Mother Before Me project http://mymotherbeforeme.com/ */
 
+.external {
+    overflow: hidden;
+    height: 100vh;
+    /* touch-action: none; */
+    /* Add also this */
+    /* user-select: none; */
+    /* width: 300px; */
+}
+
+.parent {
+    width: 300px;
+    border: 5px solid red;
+
+    /* Prevent text highlighting */
+}
+
+/* .child {
+    width: 1000px;
+    padding: 10px;
+} */
 
 * {
     /* box-sizing: border-box; */
@@ -37,10 +70,6 @@ const publicPath = import.meta.env.BASE_URL;
     height: 1px;
 }
 
-.external {
-    overflow: hidden;
-    height: 100vh;
-}
 
 .horizontal-scroll-wrapper {
     display: flex;
@@ -49,13 +78,47 @@ const publicPath = import.meta.env.BASE_URL;
     width: 100vh;
     transform: rotate(-90deg) translate3d(0, -100vh, 0);
     transform-origin: right top;
-    /* overflow-y: auto; */
-    /* overflow-x: hidden; */
+    /* overflow-y: auto;
+    overflow-x: hidden; */
     padding: 0;
     height: 100vw;
     perspective: 1px;
     transform-style: preserve-3d;
     padding-bottom: 10rem;
+
+    animation: slide infinite 15s alternate;
+    /* width: 1000px;
+    padding: 10px; */
+}
+
+#horizontal-scroll-wrapper:hover>div {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    0% {
+        margin-left: 0px;
+    }
+
+    /* 
+    10% {
+        margin-left: -100px;
+    }
+
+    30% {
+        margin-left: -300px;
+    }
+
+    40% {
+        margin-left: -400px;
+    }
+
+    50% {
+        margin-left: -500px;
+    } */
+    100% {
+        margin-left: -1500px;
+    }
 }
 
 .img-wrapper {

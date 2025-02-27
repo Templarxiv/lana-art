@@ -13,9 +13,9 @@ const avatar = "../assets/avatar.jpg"
         <div class="uk-container">
             <div>
                 <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
-                    data-src="./avatar.jpg" uk-img sizes="(min-width: 150px) 150px, 10vw">
+                    data-src="./avatar.jpg" uk-img>
                 </div>
-                <div v-if="landing == 'true'"
+                <div v-if="landing == 'truess'"
                     class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
                     <h1 uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; end: 50vh + 50%;">Художник Светлана Насреддин
                     </h1>

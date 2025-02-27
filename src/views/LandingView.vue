@@ -4,21 +4,22 @@ import GalleryHeader from '../components/gallery/GalleryHeader.vue'
 // import SlideShow from '../components/gallery/SlideShow.vue'
 import GalleryMain from '../components/gallery/GalleryMain.vue'
 import Contacts from '../components/Contacts.vue'
+import Catalogue from '../components/gallery/Catalogue.vue'
 </script>
 
 <template>
     <div class="">
-        <GalleryHeader/>
+        <GalleryHeader />
         <div style="background: white;">
             <div class="uk-container">
                 <h2>Обо мне</h2>
-                <About landing="true"/>
+                <About landing="true" />
             </div>
         </div>
         <div class="uk-section" style="background: #b3b3b3;">
             <div class="uk-container">
                 <h2>Галерея</h2>
-                <GalleryMain />
+                <Catalogue />
             </div>
         </div>
         <div style="background: white;">

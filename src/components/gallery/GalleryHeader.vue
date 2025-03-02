@@ -12,6 +12,13 @@ if (import.meta.env.PROD) {
 let images = Object.keys(imagesBlob).map(function (key) {
     return key;
 });
+images = [
+    url + "all.jpg",
+    url + "etuds.jpg",
+    url + "flowers.jpg",
+    url + "graphics.jpg",
+    url + "portrait.jpg"
+]
 const animP = (index) => {
     if (index == images.length - 1) {
         return "img-wrapper slower last";

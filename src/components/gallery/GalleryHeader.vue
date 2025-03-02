@@ -4,7 +4,7 @@ const publicPath = import.meta.env.BASE_URL;
 const url = import.meta.env.PROD ? `./images/thumbs/` : `./public/images/thumbs/`;
 let imagesBlob = null;
 if (import.meta.env.PROD) {
-    imagesBlob = import.meta.glob('/images/thumbs/*.{png,jpe?g,JPG,svg}');
+    imagesBlob = import.meta.glob('/public/images/thumbs/*.{png,jpe?g,JPG,svg}');
 } else {
     imagesBlob = import.meta.glob('/public/images/thumbs/*.{png,jpe?g,JPG,svg}');
 }

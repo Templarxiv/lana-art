@@ -1,7 +1,21 @@
 <script setup>
 import GalleryHeaderItem from './GalleryHeaderItem.vue';
 const publicPath = import.meta.env.BASE_URL;
+const url = import.meta.env.PROD ? `./images/thumbs/` : `./public/images/thumbs/`;
 
+const imagesBlob = import.meta.glob('/public/images/thumbs/*.{png,jpe?g,JPG,svg}');
+// const images = Object.values(imagesBlob);
+let images = Object.keys(imagesBlob).map(function (key) {
+    return key;
+});
+const animP = (index) => {
+    if (index == images.length - 1) {
+        return "img-wrapper slower last";
+    }
+    let anims = ["slower", "slower vertical", "slower slower-down", "faster1", "slower slower2"];
+    var anim = anims[Math.floor(Math.random() * anims.length)];
+    return "img-wrapper " + anim;
+}
 const pointerScroll = (elem) => {
 
     const dragStart = (ev) => elem.setPointerCapture(ev.pointerId);
@@ -19,15 +33,12 @@ document.querySelectorAll(".external").forEach(pointerScroll);
 <template>
     <div class="external">
         <div class="horizontal-scroll-wrapper">
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg" />
-            <GalleryHeaderItem class="img-wrapper slower vertical" name="1970-01-01 03-00-00_1637866625.jpg" />
-            <GalleryHeaderItem class="img-wrapper slower slower-down" name="1970-01-01 03-00-00_1637866628.jpg" />
-            <GalleryHeaderItem class="img-wrapper faster1" name="1970-01-01 03-00-00_1637866681.jpg" />
-            <GalleryHeaderItem class="img-wrapper slower slower2" name="1970-01-01 03-00-00_1637866693.jpg" />
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866712.jpg" />
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00.jpg" />
-            <GalleryHeaderItem class="img-wrapper slower" name="1970-01-01 03-00-00_1637866612.jpg" />
-            <GalleryHeaderItem class="img-wrapper slower last" name="1970-01-01 03-00-00_1637866612.jpg" />
+            <!-- <div class="col-md-12" v-for="(image, index) in images" :key="index">
+                <GalleryHeaderItem class="img-wrapper slower" v-for="(image, index) in images" :name="index" />
+            </div> -->
+            <GalleryHeaderItem :class="animP(key)" v-for="(image, key, index) in images" :name="image" />
+            <GalleryHeaderItem :class="animP(key)" v-for="(image, key, index) in images" :name="image" />
+            <GalleryHeaderItem :class="animP(key)" v-for="(image, key, index) in images" :name="image" />
         </div>
     </div>
 </template>

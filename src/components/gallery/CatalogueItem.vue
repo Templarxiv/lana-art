@@ -10,10 +10,10 @@ const props = defineProps({
         required: true,
     },
 })
-const url = import.meta.env.PROD ? `./images/${props.name}` : `./public/images/${props.name}`;
+const url = import.meta.env.PROD ? `./images/thumbs/${props.name}` : `./public/images/thumbs/${props.name}`;
 </script>
 <template>
-    <RouterLink class="uk-card uk-card-small uk-card-default uk-card-hover uk-card-body" to="/gallery" style="width: 200px; margin: 5px; padding: 2px;">
+    <RouterLink class="uk-card uk-card-small uk-card-default uk-card-hover uk-card-body" to="/gallery" style="margin: 5px; padding: 2px;">
         <div class="uk-card-body" style="height: 200px; padding: 0;">
             <div style="max-height: 100%;"
                 class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"

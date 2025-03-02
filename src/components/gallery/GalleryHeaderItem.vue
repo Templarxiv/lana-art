@@ -10,7 +10,7 @@ const url = import.meta.env.PROD ? `./images/${props.name}` : `./public/images/$
 <template>
     <div>
         <a href="" target="_blank" rel="noopener">
-            <img :src="url" alt="">
+            <img :src="props.name" alt="">
         </a>
     </div>
 </template>

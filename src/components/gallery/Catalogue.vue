@@ -12,11 +12,11 @@ const publicPath = import.meta.env.BASE_URL;
             </div>
         </div>
         <div class="uk-grid-small uk-child-width-expand@s " uk-grid>
-            <CatalogueItem name="1970-01-01 03-00-00_1637866612.jpg" label="Портрет" />
-            <CatalogueItem name="1970-01-01 03-00-00_1637866625.jpg" label="Цветы" />
-            <CatalogueItem name="1970-01-01 03-00-00_1637866628.jpg" label="Этюд" />
-            <CatalogueItem name="1970-01-01 03-00-00_1637866681.jpg" label="Графика" />
-            <CatalogueItem name="1970-01-01 03-00-00_1637866712.jpg" label="Каталог работ" />
+            <CatalogueItem name="portrait.jpg" label="Портрет" />
+            <CatalogueItem name="flowers.jpg" label="Цветы" />
+            <CatalogueItem name="etuds.jpg" label="Этюд" />
+            <CatalogueItem name="graphics.jpg" label="Графика" />
+            <CatalogueItem name="all.jpg" label="Каталог работ" />
         </div>
     </div>
 </template>

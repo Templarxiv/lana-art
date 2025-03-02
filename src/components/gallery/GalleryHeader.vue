@@ -2,8 +2,12 @@
 import GalleryHeaderItem from './GalleryHeaderItem.vue';
 const publicPath = import.meta.env.BASE_URL;
 const url = import.meta.env.PROD ? `./images/thumbs/` : `./public/images/thumbs/`;
-
-const imagesBlob = import.meta.glob('/public/images/thumbs/*.{png,jpe?g,JPG,svg}');
+let imagesBlob = null;
+if (import.meta.env.PROD) {
+    imagesBlob = import.meta.glob('/images/thumbs/*.{png,jpe?g,JPG,svg}');
+} else {
+    imagesBlob = import.meta.glob('/public/images/thumbs/*.{png,jpe?g,JPG,svg}');
+}
 // const images = Object.values(imagesBlob);
 let images = Object.keys(imagesBlob).map(function (key) {
     return key;

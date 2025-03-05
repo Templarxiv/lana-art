@@ -34,9 +34,30 @@ import FooterView from './views/FooterView.vue'
       </div>
     </nav>
   </div>
-  <!-- </header> -->
-  <RouterView />
-  <FooterView />
+  <router-view v-slot="{ Component }">
+    <transition name="slide-fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+  <!-- <RouterView></RouterView> -->
 </template>
 
-<style scoped></style>
+<style scoped>
+/*
+Enter and leave animations can use different
+durations and timing functions.
+*/
+.slide-fade-enter-active {
+  transition: all 0.4s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(50px);
+  opacity: 0;
+}
+</style>

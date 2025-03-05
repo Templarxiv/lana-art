@@ -31,8 +31,7 @@ const avatar = "../assets/avatar.jpg"
                         Подобно художникам прошлого, я использую натуральные пигменты, стертые на желтке.»
                     </p>
                 </div>
-                <div v-else
-                    class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <div v-else class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
                     <h1>Художник Светлана Насреддин
                     </h1>
                     <p>«Моя техника живописи

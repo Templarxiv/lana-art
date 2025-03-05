@@ -11,7 +11,7 @@ const publicPath = import.meta.env.BASE_URL;
 
             </div>
         </div>
-        <div class="uk-grid-small uk-child-width-expand@s " uk-grid>
+        <div class="uk-grid-small uk-child-width-expand@s uk-child-width-expand@m " uk-grid>
             <CatalogueItem name="portrait.jpg" label="Портрет" />
             <CatalogueItem name="flowers.jpg" label="Цветы" />
             <CatalogueItem name="etuds.jpg" label="Этюд" />

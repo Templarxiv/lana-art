@@ -97,7 +97,7 @@ document.querySelectorAll(".external").forEach(pointerScroll);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vh;
+    width: 85vh;
     transform: rotate(-90deg) translate3d(0, -100vh, 0);
     transform-origin: right top;
     /* overflow-y: auto;
@@ -106,9 +106,9 @@ document.querySelectorAll(".external").forEach(pointerScroll);
     height: 100vw;
     perspective: 1px;
     transform-style: preserve-3d;
-    padding-bottom: 10rem;
+    /* padding-bottom: 10rem; */
 
-    animation: slide infinite 15s alternate;
+    animation: slide infinite 25s alternate;
     /* width: 1000px;
     padding: 10px; */
 }

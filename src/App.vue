@@ -14,6 +14,7 @@ import FooterView from './views/FooterView.vue'
           <div class="uk-navbar-center uk-preserve-color">
             <ul class="uk-navbar-nav uk-dark">
               <div class="uk-navbar-item">
+                <!-- <img :src="`favicon.ico`" alt=""> -->
                 <div>Вета Насреддин</div>
               </div>
               <li>
